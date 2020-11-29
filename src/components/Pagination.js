@@ -10,9 +10,9 @@ const Pagination = ({ beerPerPage, totalBeers, activePage, paginate }) => {
   const pagesLessThanTen = () => {
     return pageNumbers.map((number) => (
       <article key={number} className='pagination '>
-        <a onClick={() => paginate(number)} href='!#' className='active'>
+        <button onClick={() => paginate(number)} className='active'>
           {number}
-        </a>
+        </button>
       </article>
     ));
   };
@@ -22,14 +22,13 @@ const Pagination = ({ beerPerPage, totalBeers, activePage, paginate }) => {
       <>
         {activePage > 1 && (
           <article className='pagination'>
-            <a
-              href='!#'
+            <button
               aria-label='Previous'
               onClick={() => paginate(activePage - 1)}
             >
               <span aria-hidden='true'>&laquo;</span>
               <span>Previous</span>
-            </a>
+            </button>
           </article>
         )}
         <span className='pagination'>
@@ -37,14 +36,10 @@ const Pagination = ({ beerPerPage, totalBeers, activePage, paginate }) => {
         </span>
         {activePage < pageNumbers.length && (
           <article className='pagination'>
-            <a
-              href='!#'
-              aria-label='Next'
-              onClick={() => paginate(activePage + 1)}
-            >
+            <button aria-label='Next' onClick={() => paginate(activePage + 1)}>
               <span>Next</span>
               <span aria-hidden='true'>&raquo;</span>
-            </a>
+            </button>
           </article>
         )}
       </>
